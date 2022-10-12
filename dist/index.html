@@ -9,6 +9,51 @@
     <title>Frontend Mentor | Interactive card details form</title>
 <link rel="stylesheet" href="/main.1e43358e.css"></head>
 <body>
-    <h1>test</h1>
+    <div class="wrap">
+        <section class="cards">
+            <article class="card front">
+                <span id="cardNumbers">
+                    0000 0000 0000 0000
+                </span>
+                <ul>
+                    <li id="name">
+                        JANE APPLESEED
+                    </li>
+                    <li>
+                        <span id="dateYear">00</span>/<span id="dateMonth">00</span>
+                    </li>
+                </ul>
+            </article>
+            <article class="card back">
+                <span id="cvcNumbers">000</span>
+            </article>
+        </section>
+        <section class="forms">
+            <ul>
+                <li class="flex-dirc">
+                    <span>Cardholder Name</span>
+                    <input type="text" placeholder="e.g. Jane Appleseed">
+                </li>
+                <li class="flex-dirc">
+                    <span>Card Number</span>
+                    <input type="text" placeholder="e.g. 1234 5678 9123 0000">
+                </li>
+                <li>
+                    <div class="flex-dirc">
+                        <span>Exp. Date (MM/YY)</span>
+                        <input type="text" placeholder="MM">
+                        <input type="text" placeholder="YY">
+                    </div>
+                    <div class="flex-dirc">
+                        <span>CVC</span>
+                        <input type="text" placeholder="e.g. 123">
+                    </div>
+                </li>
+            </ul>
+            <button>
+                Confirm
+            </button>
+        </section>
+    </div>
 </body>
 </html>
