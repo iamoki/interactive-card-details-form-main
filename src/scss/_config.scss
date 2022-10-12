@@ -1,0 +1,43 @@
+/* 폰트 세팅 */
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+// rem 기준 사이즈
+$base-font-size: 16px;
+
+// rem 사이즈 구하는 함수
+@function rem($pixSize, $context: $base-font-size) {
+    @return $pixSize / $context * 1rem;
+}
+
+// line-height 상대값 구하기
+@function lh($leSize, $ftSize) {
+    @return $leSize / $ftSize;
+}
+
+// font-weight
+@mixin font-w($val) {
+    font-weight: $val;
+}
+
+// 가로, 세로 통합
+@mixin wh($w-val, $h-val) {
+    width: $w-val;
+    height: $h-val;
+}
+
+// 버튼리셋
+@mixin btnReset($val:#000) {
+    padding: 0;
+    border: none;
+    outline: none;
+    color: $val;
+    background: none;
+}
+
+/* flex */
+@mixin flexBox($jc: center, $ai: center, $fd: row) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+}
