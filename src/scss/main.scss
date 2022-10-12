@@ -1,2 +1,79 @@
 @import 'reset';
 @import 'config';
+
+.wrap {
+    position: relative;
+    min-height: 100vh;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: rem(483px);
+        height: 100vh;
+        background-color: #21092F;
+        z-index: -1;
+    }
+}
+
+.cards {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    .card {
+        position: relative;
+        width: rem(447px);
+        padding-top: 54.80%;
+        background: {
+            repeat: no-repeat;
+            position: center;
+        };
+        &.front {
+            margin-bottom: 37px;
+            background: {
+                image: url('/assets/bg-card-front.png');
+            };
+            transform: translateX(-10px);
+            & > div {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 26.5px;
+                width: calc(100% - 64px);
+                color: #fff;
+                & > span {
+                    display: block;
+                    margin-bottom: rem(25.5px);
+                    font-size: rem(28px);
+                    letter-spacing: 3.42px;
+                }
+                ul {
+                    @include flexBox($jc:space-between);
+                    font-size: rem(14px);
+                }
+            }
+        }
+        &.back {
+            transform: translateX(100px);
+            background: {
+                image: url('/assets/bg-card-back.png');
+            };
+            span {
+                position: absolute;
+                top: 45%;
+                right: 12%;
+                font-size: rem(14px);
+                color: #fff;
+            }
+        }
+    }
+}
+
+.forms {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+    background-color: #fff;
+}

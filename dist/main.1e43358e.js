@@ -172,7 +172,7 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
+},{"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-front.png":[["bg-card-front.cb370c05.png","assets/bg-card-front.png"],"assets/bg-card-front.png"],"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-back.png":[["bg-card-back.db541e0b.png","assets/bg-card-back.png"],"assets/bg-card-back.png"],"_css_loader":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
 require('./scss/main.scss');
 console.log('Hello parcel!');
 },{"./scss/main.scss":"src/scss/main.scss"}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

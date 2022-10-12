@@ -1,17 +1,17 @@
 /* 폰트 세팅 */
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 
 // rem 기준 사이즈
 $base-font-size: 16px;
 
 // rem 사이즈 구하는 함수
 @function rem($pixSize, $context: $base-font-size) {
-    @return $pixSize / $context * 1rem;
+    @return calc($pixSize / $context) * 1rem;
 }
 
 // line-height 상대값 구하기
 @function lh($leSize, $ftSize) {
-    @return $leSize / $ftSize;
+    @return calc($leSize / $ftSize);
 }
 
 // font-weight
