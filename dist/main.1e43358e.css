@@ -131,7 +131,7 @@ table {
   top: 50%;
   right: 20%;
   transform: translateY(-50%);
-  width: 380px;
+  width: 21.22vw;
   background-color: #fff;
   /* 공통사항 */
 }
@@ -204,6 +204,44 @@ table {
   font-size: 1.125rem;
   line-height: 1.2777777778;
   color: #fff;
+}
+
+@media (max-width: 1399px) {
+  .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .wrap::before {
+    width: 100vw;
+    height: 40vh;
+  }
+  .cards,
+.forms {
+    position: relative;
+    top: unset;
+    left: unset;
+    right: unset;
+    transform: translateY(0);
+  }
+  .cards {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 400px;
+    max-width: calc(100% - 20px);
+  }
+  .cards .card.front {
+    z-index: 3;
+    transform: translateX(15px);
+  }
+  .cards .card.back {
+    transform: translate(90px, 65px);
+  }
+  .forms {
+    width: 381px;
+    max-width: calc(100% - 48px);
+  }
 }
 
 /*# sourceMappingURL=/main.1e43358e.css.map */

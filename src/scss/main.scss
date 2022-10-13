@@ -82,7 +82,7 @@
     top: 50%;
     right: 20%;
     transform: translateY(-50%);
-    width: 380px;
+    width: 21.22vw;
     background-color: #fff;
     li ~ li {
         margin-top: 26px;
@@ -145,6 +145,39 @@
     }
 }
 
-@media (max-width: 1400px) {
-    
+@media (max-width: 1399px) {
+    .wrap {
+        @include flexBox($fd: column);
+        &::before {
+            width: 100vw;
+            height: 40vh;
+        }
+    }
+    .cards,
+    .forms {
+        position: relative;
+        top: unset;
+        left: unset;
+        right: unset;
+        transform: translateY(0);
+    }
+    .cards {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 400px;
+        max-width: calc(100% - 20px);
+        .card {
+            &.front {
+                z-index: 3;
+                transform: translateX(15px);
+            }
+            &.back {
+                transform: translate(90px, 65px);
+            }
+        }
+    }
+    .forms {
+        width: 381px;
+        max-width: calc(100% - 48px);
+    }
 }
