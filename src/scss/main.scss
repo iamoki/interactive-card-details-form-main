@@ -51,6 +51,8 @@
                 ul {
                     @include flexBox($jc:space-between);
                     font-size: rem(14px);
+                    line-height: lh(17.86px, 14px);
+                    letter-spacing: 2px;
                 }
             }
         }
@@ -64,6 +66,8 @@
                 top: 45%;
                 right: 12%;
                 font-size: rem(14px);
+                line-height: lh(17.86px, 14px);
+                letter-spacing: 2px;
                 color: #fff;
             }
         }
@@ -75,5 +79,65 @@
     top: 50%;
     right: 20%;
     transform: translateY(-50%);
+    width: 380px;
     background-color: #fff;
+    li ~ li {
+        margin-top: 26px;
+    }
+    li:not(.half) {
+        input {
+            width: 100%;
+        }
+    }
+    .half {
+        @include flexBox;
+        gap: 20px;
+        & > div {
+            width: 50%;
+            & > input {
+                width: 100%;
+            }
+            & > div {
+                @include flexBox;
+                width: 100%;
+                gap: 10px;
+                & > input {
+                    width: 50%;
+                }
+            }
+        }
+    }
+    /* 공통사항 */
+    .flex-dirc {
+        @include flexBox($ai:flex-start,$fd:column);
+    }
+    span {
+        display: block;
+        margin-bottom: 9px;
+        font-size: rem(12px);
+        line-height: lh(15.31px, 12px);
+        color: #21092F;
+        letter-spacing: 2px;
+    }
+    input {
+        padding: 11px 16px;
+        border: 1px solid #DFDEE0;
+        border-radius: 8px;
+        font-size: rem(18px);
+        line-height: lh(22.97px, 18px);
+        box-sizing: border-box;
+        &::placeholder {
+            color: rgba(#21092F, 0.25);
+        }
+    }
+    button {
+        @include btnReset;
+        @include wh(100%, 53px);
+        margin-top: rem(40px);
+        border-radius: 8px;
+        background-color: #21092F;
+        font-size: rem(18px);
+        line-height: lh(23px, 18px);
+        color: #fff;
+    }
 }
