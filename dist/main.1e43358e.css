@@ -73,13 +73,16 @@ table {
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
+  width: 29vw;
 }
 .cards .card {
   position: relative;
-  width: 27.9375rem;
-  padding-top: 54.8%;
+  width: calc(100% - 98px);
+  padding-top: 44.8%;
+  border-radius: 8px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 .cards .card.front {
   margin-bottom: 37px;
@@ -97,7 +100,7 @@ table {
 .cards .card.front > div > span {
   display: block;
   margin-bottom: 1.59375rem;
-  font-size: 1.75rem;
+  font-size: 1.15vw;
   letter-spacing: 3.42px;
 }
 .cards .card.front > div ul {
@@ -105,7 +108,7 @@ table {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
   line-height: 1.2757142857;
   letter-spacing: 2px;
 }
@@ -117,7 +120,7 @@ table {
   position: absolute;
   top: 45%;
   right: 12%;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
   line-height: 1.2757142857;
   letter-spacing: 2px;
   color: #fff;
