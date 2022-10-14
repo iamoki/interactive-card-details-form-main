@@ -190,9 +190,20 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"C:\\Users\\user\\Desktop\\옥희\\publish\\interactive-card-details-form-main\\assets\\bg-card-front.png":[["bg-card-front.cb370c05.png","assets/bg-card-front.png"],"assets/bg-card-front.png"],"C:\\Users\\user\\Desktop\\옥희\\publish\\interactive-card-details-form-main\\assets\\bg-card-back.png":[["bg-card-back.db541e0b.png","assets/bg-card-back.png"],"assets/bg-card-back.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
-require('./scss/main.scss');
+require('./scss/main.scss'); // card
 
-console.log('Hello parcel!');
+
+var cardNumbers = document.getElementById('cardNumbers');
+var name = document.getElementById('name');
+var dateYear = document.getElementById('dateYear');
+var dateMonth = document.getElementById('dateMonth');
+var cvcNumbers = document.getElementById('cvcNumbers'); //input
+
+var inputCardNumbers = document.getElementById('inputCardNumbers');
+var inputName = document.getElementById('inputName');
+var inputDateYear = document.getElementById('inputDateYear');
+var inputDateMonth = document.getElementById('inputDateMonth');
+var inputCvcNumbers = document.getElementById('inputCvcNumbers');
 },{"./scss/main.scss":"src/scss/main.scss"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -221,7 +232,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51585" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55118" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

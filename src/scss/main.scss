@@ -179,5 +179,12 @@
     .forms {
         width: 381px;
         max-width: calc(100% - 48px);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 375px) {
+    .forms {
+        width: 100%;
     }
 }
