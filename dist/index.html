@@ -35,12 +35,12 @@
                 <ul>
                     <li class="flex-dirc">
                         <span>Cardholder Name</span>
-                        <input type="text" placeholder="e.g. Jane Appleseed" id="inputName">
+                        <input type="text" placeholder="e.g. Jane Appleseed" id="inputName" maxlength="20">
                         <!-- <span class="blank-msg">Can’t be blank</span> -->
                     </li>
                     <li class="flex-dirc">
                         <span>Card Number</span>
-                        <input type="text" placeholder="e.g. 1234 5678 9123 0000" id="inputCardNumbers">
+                        <input type="text" placeholder="e.g. 1234 5678 9123 0000" id="inputCardNumbers" maxlength="19">
                         <!-- <span class="worng-msg">Wrong format, numbers only</span> -->
                         <!-- <span class="blank-msg">Can’t be blank</span> -->
                     </li>
@@ -48,13 +48,13 @@
                         <div class="flex-dirc">
                             <span>Exp. Date (MM/YY)</span>
                             <div>
-                                <input type="text" placeholder="MM" id="inputDateYear">
-                                <input type="text" placeholder="YY" id="inputDateMonth">
+                                <input type="text" placeholder="MM" id="inputDateYear" maxlength="2">
+                                <input type="text" placeholder="YY" id="inputDateMonth" maxlength="2">
                             </div>
                         </div>
                         <div class="flex-dirc">
                             <span>CVC</span>
-                            <input type="text" placeholder="e.g. 123" id="inputCvcNumbers">
+                            <input type="text" placeholder="e.g. 123" id="inputCvcNumbers" maxlength="3">
                         </div>
                     </li>
                 </ul>

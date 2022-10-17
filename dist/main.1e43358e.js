@@ -189,6 +189,9 @@ var dateMonth = document.getElementById('dateMonth');
 var inputDateMonth = document.getElementById('inputDateMonth');
 var cvcNumbers = document.getElementById('cvcNumbers');
 var inputCvcNumbers = document.getElementById('inputCvcNumbers');
+function inputContents(e, elName) {
+  elName.textContent = e.target.value;
+}
 
 // 이름
 // inputName.addEventListener('input', (e) => {
@@ -217,9 +220,6 @@ inputDateMonth.addEventListener('input', function (e) {
 inputCvcNumbers.addEventListener('input', function (e) {
   inputContents(e, cvcNumbers);
 });
-function inputContents(e, elName) {
-  elName.textContent = e.target.value;
-}
 },{"./scss/main.scss":"src/scss/main.scss"}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -245,7 +245,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49674" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55873" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

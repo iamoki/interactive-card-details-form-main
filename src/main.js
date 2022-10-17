@@ -19,6 +19,10 @@ const inputDateMonth = document.getElementById('inputDateMonth');
 const cvcNumbers = document.getElementById('cvcNumbers');
 const inputCvcNumbers = document.getElementById('inputCvcNumbers');
 
+function inputContents(e, elName) {
+    elName.textContent = e.target.value;
+}
+
 // 이름
 // inputName.addEventListener('input', (e) => {
 //     name.textContent = e.target.value;
@@ -46,7 +50,3 @@ inputDateMonth.addEventListener('input', (e) => {
 inputCvcNumbers.addEventListener('input', (e) => {
     inputContents(e, cvcNumbers);
 })
-
-function inputContents(e, elName) {
-    elName.textContent = e.target.value;
-}
