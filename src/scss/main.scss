@@ -1,6 +1,10 @@
 @import 'reset';
 @import 'config';
 
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 .wrap {
     position: relative;
     min-height: 100vh;
@@ -77,13 +81,29 @@
     }
 }
 
-.forms {
+
+
+.forms,
+.finish {
     position: absolute;
     top: 50%;
     right: 20%;
     transform: translateY(-50%);
     width: 21.22vw;
     background-color: #fff;
+    button {
+        @include btnReset;
+        @include wh(100%, 53px);
+        margin-top: rem(40px);
+        border-radius: 8px;
+        background-color: #21092F;
+        font-size: rem(18px);
+        line-height: lh(23px, 18px);
+        color: #fff;
+    }
+}
+
+.forms {
     li ~ li {
         margin-top: 26px;
     }
@@ -112,7 +132,25 @@
     }
     /* 공통사항 */
     .flex-dirc {
+        position: relative;
         @include flexBox($ai:flex-start,$fd:column);
+        &::after {
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            font-size: rem(12px);
+            color: #FF5050;
+        }
+        &.worng {
+            &::after {
+                content: "Wrong format, numbers only";
+            }
+        }
+        &.blank {
+            &::after {
+                content: "Can’t be blank";
+            }
+        }
     }
     span {
         display: block;
@@ -122,6 +160,10 @@
         color: #21092F;
         letter-spacing: 2px;
     }
+    .worng-msg,
+    .blank-msg {
+        display: none;
+    }
     input {
         padding: 11px 16px;
         border: 1px solid #DFDEE0;
@@ -129,19 +171,33 @@
         font-size: rem(18px);
         line-height: lh(22.97px, 18px);
         box-sizing: border-box;
+        outline: none;
         &::placeholder {
             color: rgba(#21092F, 0.25);
         }
+        &:focus {
+            position: relative;
+            border: 1px solid #451064;
+        }
     }
-    button {
-        @include btnReset;
-        @include wh(100%, 53px);
-        margin-top: rem(40px);
-        border-radius: 8px;
-        background-color: #21092F;
-        font-size: rem(18px);
-        line-height: lh(23px, 18px);
-        color: #fff;
+}
+
+.finish {
+    text-align: center;
+    display: none;
+    div {
+        padding-top: rem(35px);
+        h2 {
+            font-size: rem(28px);
+            line-height: lh(35.73px, 28px);
+            margin-bottom: rem(16px);
+            letter-spacing: rem(3.42px);
+        }
+        p {
+            font-size: rem(18px);
+            line-height: lh(22.97px, 18px);
+            color: #8F8694;
+        }
     }
 }
 

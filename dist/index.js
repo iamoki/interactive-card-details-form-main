@@ -168,59 +168,7 @@ function reloadCSS() {
   }, 50);
 }
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-front.png":[["bg-card-front.cb370c05.png","assets/bg-card-front.png"],"assets/bg-card-front.png"],"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-back.png":[["bg-card-back.db541e0b.png","assets/bg-card-back.png"],"assets/bg-card-back.png"],"_css_loader":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
-require('./scss/main.scss');
-
-/*
-* card
-* input 순서
-*/
-var cardNumbers = document.getElementById('cardNumbers');
-var inputCardNumbers = document.getElementById('inputCardNumbers');
-var name = document.getElementById('name');
-var inputName = document.getElementById('inputName');
-var dateYear = document.getElementById('dateYear');
-var inputDateYear = document.getElementById('inputDateYear');
-var dateMonth = document.getElementById('dateMonth');
-var inputDateMonth = document.getElementById('inputDateMonth');
-var cvcNumbers = document.getElementById('cvcNumbers');
-var inputCvcNumbers = document.getElementById('inputCvcNumbers');
-
-// 이름
-// inputName.addEventListener('input', (e) => {
-//     name.textContent = e.target.value;
-// });
-inputName.addEventListener('input', function (e) {
-  inputContents(e, name);
-});
-
-// 카드넘버
-inputCardNumbers.addEventListener('input', function (e) {
-  inputContents(e, cardNumbers);
-});
-
-// 연도
-inputDateYear.addEventListener('input', function (e) {
-  inputContents(e, dateYear);
-});
-
-// 월
-inputDateMonth.addEventListener('input', function (e) {
-  inputContents(e, dateMonth);
-});
-
-// CVC번호
-inputCvcNumbers.addEventListener('input', function (e) {
-  inputContents(e, cvcNumbers);
-});
-function inputContents(e, elName) {
-  elName.textContent = e.target.value;
-}
-},{"./scss/main.scss":"src/scss/main.scss"}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -389,5 +337,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.js"], null)
-//# sourceMappingURL=/main.1e43358e.js.map
+},{}]},{},["../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
