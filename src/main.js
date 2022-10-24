@@ -19,14 +19,14 @@ const inputDateMonth = document.getElementById('inputDateMonth');
 const cvcNumbers = document.getElementById('cvcNumbers');
 const inputCvcNumbers = document.getElementById('inputCvcNumbers');
 
+// confirmButton
+const confirmBtn = document.getElementById('confirm-btn');
+
 function inputContents(e, elName) {
     elName.textContent = e.target.value;
 }
 
 // 이름
-// inputName.addEventListener('input', (e) => {
-//     name.textContent = e.target.value;
-// });
 inputName.addEventListener('input', (e) => {
     inputContents(e, name);
 });

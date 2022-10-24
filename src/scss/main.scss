@@ -81,8 +81,6 @@
     }
 }
 
-
-
 .forms,
 .finish {
     position: absolute;
@@ -100,6 +98,7 @@
         font-size: rem(18px);
         line-height: lh(23px, 18px);
         color: #fff;
+        cursor: pointer;
     }
 }
 

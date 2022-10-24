@@ -153,6 +153,7 @@ table {
   font-size: 1.125rem;
   line-height: 1.2777777778;
   color: #fff;
+  cursor: pointer;
 }
 
 .forms {
