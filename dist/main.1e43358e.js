@@ -117,86 +117,68 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
-
 function getBundleURLCached() {
   if (!bundleURL) {
     bundleURL = getBundleURL();
   }
-
   return bundleURL;
 }
-
 function getBundleURL() {
   // Attempt to find the URL of the current script and use that as the base URL
   try {
     throw new Error();
   } catch (err) {
     var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
     if (matches) {
       return getBaseURL(matches[0]);
     }
   }
-
   return '/';
 }
-
 function getBaseURL(url) {
   return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
-
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
-
 function updateLink(link) {
   var newLink = link.cloneNode();
-
   newLink.onload = function () {
     link.remove();
   };
-
   newLink.href = link.href.split('?')[0] + '?' + Date.now();
   link.parentNode.insertBefore(newLink, link.nextSibling);
 }
-
 var cssTimeout = null;
-
 function reloadCSS() {
   if (cssTimeout) {
     return;
   }
-
   cssTimeout = setTimeout(function () {
     var links = document.querySelectorAll('link[rel="stylesheet"]');
-
     for (var i = 0; i < links.length; i++) {
       if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
         updateLink(links[i]);
       }
     }
-
     cssTimeout = null;
   }, 50);
 }
-
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/main.scss":[function(require,module,exports) {
+},{"./bundle-url":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
-
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"C:\\Users\\user\\Desktop\\옥희\\publish\\interactive-card-details-form-main\\assets\\bg-card-front.png":[["bg-card-front.cb370c05.png","assets/bg-card-front.png"],"assets/bg-card-front.png"],"C:\\Users\\user\\Desktop\\옥희\\publish\\interactive-card-details-form-main\\assets\\bg-card-back.png":[["bg-card-back.db541e0b.png","assets/bg-card-back.png"],"assets/bg-card-back.png"],"_css_loader":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
+},{"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-front.png":[["bg-card-front.cb370c05.png","assets/bg-card-front.png"],"assets/bg-card-front.png"],"/Users/oki-an/Desktop/study/frontend-mentor/interactive-card-details-form-main/assets/bg-card-back.png":[["bg-card-back.db541e0b.png","assets/bg-card-back.png"],"assets/bg-card-back.png"],"_css_loader":"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/main.js":[function(require,module,exports) {
 require('./scss/main.scss');
+
 /*
 * card
 * input 순서
 */
-
-
 var cardNumbers = document.getElementById('cardNumbers');
 var inputCardNumbers = document.getElementById('inputCardNumbers');
 var name = document.getElementById('name');
@@ -206,39 +188,95 @@ var inputDateYear = document.getElementById('inputDateYear');
 var dateMonth = document.getElementById('dateMonth');
 var inputDateMonth = document.getElementById('inputDateMonth');
 var cvcNumbers = document.getElementById('cvcNumbers');
-var inputCvcNumbers = document.getElementById('inputCvcNumbers'); // confirmButton
+var inputCvcNumbers = document.getElementById('inputCvcNumbers');
+var fails = [];
 
+// confirmButton
 var confirmBtn = document.getElementById('confirm-btn');
 
+// 인풋값 value값 가져와서 카드에 넣기
 function inputContents(e, elName) {
   elName.textContent = e.target.value;
-} // 이름
+}
+// 인풋값 체크 후 빈 값일 경우 공통효과
+function chkNull(el, className) {
+  el.style.border = "1px solid #FF5050";
+  el.parentElement.classList.add(className);
+}
+// 인풋값 체크 후 올바른 값일 경우 공통효과
+function chkPass(el, className) {
+  el.style.border = "1px solid #DFDEE0";
+  el.parentElement.classList.remove(className);
+}
 
+// 이름
+inputName.addEventListener('keyup', function (e) {
+  if (/[^a-zA-Z]/.test(e.target.value)) {
+    alert('영문만 쓰세요');
+    console.log('국문?');
+    // 입력할때 벨리데이션 체크하기로 바꿔보기 10/31
+  } else {
+    console.log('영문?');
+    inputContents(e, name);
+  }
+});
 
-inputName.addEventListener('input', function (e) {
-  inputContents(e, name);
-}); // 카드넘버
-
+// 카드넘버
 inputCardNumbers.addEventListener('input', function (e) {
   inputContents(e, cardNumbers);
-}); // 연도
+});
 
+// 연도
 inputDateYear.addEventListener('input', function (e) {
   inputContents(e, dateYear);
-}); // 월
+});
 
+// 월
 inputDateMonth.addEventListener('input', function (e) {
   inputContents(e, dateMonth);
-}); // CVC번호
+});
 
+// CVC번호
 inputCvcNumbers.addEventListener('input', function (e) {
   inputContents(e, cvcNumbers);
 });
-},{"./scss/main.scss":"src/scss/main.scss"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+confirmBtn.addEventListener('click', function () {
+  // 이름체크
+  if (inputName.value === "") {
+    fails.push(inputName);
+    chkNull(inputName, "blank");
+  } else if (/[^a-zA-Z]/.test(inputName.value)) {
+    fails.push(inputName);
+    console.log('영문만 입력하세요');
+  } else {
+    return;
+  }
+  // 카드넘버 체크
+  if (inputCardNumbers.value == "") {
+    fails.push(inputCardNumbers);
+    chkNull(inputCardNumbers, "blank");
+  }
+  // 연도 체크
+  if (inputDateYear.value == "") {
+    fails.push(inputDateYear);
+    chkNull(inputDateYear, "blank");
+  }
+  // 월 체크
+  if (inputDateMonth.value == "") {
+    fails.push(inputDateMonth);
+    chkNull(inputDateMonth, "blank");
+  }
+  // CVC번호 체크
+  if (inputCvcNumbers.value == "") {
+    fails.push(inputCvcNumbers);
+    chkNull(inputCvcNumbers, "blank");
+  }
+  console.log(fails);
+});
+},{"./scss/main.scss":"src/scss/main.scss"}],"../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
-
 function Module(moduleName) {
   OldModule.call(this, moduleName);
   this.hot = {
@@ -254,37 +292,32 @@ function Module(moduleName) {
   };
   module.bundle.hotData = null;
 }
-
 module.bundle.Module = Module;
 var checkedAssets, assetsToAccept;
 var parent = module.bundle.parent;
-
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63043" + '/');
-
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49681" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
     var data = JSON.parse(event.data);
-
     if (data.type === 'update') {
       var handled = false;
       data.assets.forEach(function (asset) {
         if (!asset.isNew) {
           var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
-
           if (didAccept) {
             handled = true;
           }
         }
-      }); // Enable HMR for CSS by default.
+      });
 
+      // Enable HMR for CSS by default.
       handled = handled || data.assets.every(function (asset) {
         return asset.type === 'css' && asset.generated.js;
       });
-
       if (handled) {
         console.clear();
         data.assets.forEach(function (asset) {
@@ -298,20 +331,16 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         location.reload();
       }
     }
-
     if (data.type === 'reload') {
       ws.close();
-
       ws.onclose = function () {
         location.reload();
       };
     }
-
     if (data.type === 'error-resolved') {
       console.log('[parcel] ✨ Error resolved');
       removeErrorOverlay();
     }
-
     if (data.type === 'error') {
       console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
       removeErrorOverlay();
@@ -320,19 +349,17 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     }
   };
 }
-
 function removeErrorOverlay() {
   var overlay = document.getElementById(OVERLAY_ID);
-
   if (overlay) {
     overlay.remove();
   }
 }
-
 function createErrorOverlay(data) {
   var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID; // html encode message and stack trace
+  overlay.id = OVERLAY_ID;
 
+  // html encode message and stack trace
   var message = document.createElement('div');
   var stackTrace = document.createElement('pre');
   message.innerText = data.error.message;
@@ -340,41 +367,31 @@ function createErrorOverlay(data) {
   overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
   return overlay;
 }
-
 function getParents(bundle, id) {
   var modules = bundle.modules;
-
   if (!modules) {
     return [];
   }
-
   var parents = [];
   var k, d, dep;
-
   for (k in modules) {
     for (d in modules[k][1]) {
       dep = modules[k][1][d];
-
       if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
         parents.push(k);
       }
     }
   }
-
   if (bundle.parent) {
     parents = parents.concat(getParents(bundle.parent, id));
   }
-
   return parents;
 }
-
 function hmrApply(bundle, asset) {
   var modules = bundle.modules;
-
   if (!modules) {
     return;
   }
-
   if (modules[asset.id] || !bundle.parent) {
     var fn = new Function('require', 'module', 'exports', asset.generated.js);
     asset.isNew = !modules[asset.id];
@@ -383,60 +400,47 @@ function hmrApply(bundle, asset) {
     hmrApply(bundle.parent, asset);
   }
 }
-
 function hmrAcceptCheck(bundle, id) {
   var modules = bundle.modules;
-
   if (!modules) {
     return;
   }
-
   if (!modules[id] && bundle.parent) {
     return hmrAcceptCheck(bundle.parent, id);
   }
-
   if (checkedAssets[id]) {
     return;
   }
-
   checkedAssets[id] = true;
   var cached = bundle.cache[id];
   assetsToAccept.push([bundle, id]);
-
   if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
     return true;
   }
-
   return getParents(global.parcelRequire, id).some(function (id) {
     return hmrAcceptCheck(global.parcelRequire, id);
   });
 }
-
 function hmrAcceptRun(bundle, id) {
   var cached = bundle.cache[id];
   bundle.hotData = {};
-
   if (cached) {
     cached.hot.data = bundle.hotData;
   }
-
   if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
     cached.hot._disposeCallbacks.forEach(function (cb) {
       cb(bundle.hotData);
     });
   }
-
   delete bundle.cache[id];
   bundle(id);
   cached = bundle.cache[id];
-
   if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
     cached.hot._acceptCallbacks.forEach(function (cb) {
       cb();
     });
-
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.js"], null)
+},{}]},{},["../../../../.nvm/versions/node/v16.13.1/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/main.js"], null)
 //# sourceMappingURL=/main.1e43358e.js.map

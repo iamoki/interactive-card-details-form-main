@@ -189,6 +189,16 @@ table {
 .forms .half > div > div > input {
   width: 50%;
 }
+.forms .half > div > div::after {
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+  font-size: 0.75rem;
+  color: #FF5050;
+}
+.forms .half > div > div.blank::after {
+  content: "Can’t be blank";
+}
 .forms .flex-dirc {
   position: relative;
   display: flex;

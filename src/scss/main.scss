@@ -126,6 +126,18 @@
                 & > input {
                     width: 50%;
                 }
+                &::after {
+                    position: absolute;
+                    bottom: -17px;
+                    left: 0;
+                    font-size: rem(12px);
+                    color: #FF5050;
+                }
+                &.blank {
+                    &::after {
+                        content: "Can’t be blank";
+                    }
+                }
             }
         }
     }
