@@ -133,6 +133,12 @@
                     font-size: rem(12px);
                     color: #FF5050;
                 }
+                &.worng {
+                    &::after {
+                        content: "Wrong format, numbers only";
+                        bottom: -29px;
+                    }
+                }
                 &.blank {
                     &::after {
                         content: "Can’t be blank";
@@ -150,7 +156,13 @@
             bottom: -17px;
             left: 0;
             font-size: rem(12px);
+            white-space: nowrap;
             color: #FF5050;
+        }
+        &.worng_eng {
+            &::after {
+                content: "Wrong format, English only";
+            }
         }
         &.worng {
             &::after {

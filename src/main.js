@@ -28,8 +28,8 @@ const confirmBtn = document.getElementById('confirm-btn');
 function inputContents(e, elName) {
     elName.textContent = e.target.value;
 }
-// 인풋값 체크 후 빈 값일 경우 공통효과
-function chkNull(el, className) {
+// 인풋값 체크 후 빈,잘못 된 값일 경우 공통효과
+function chkInput(el, className) {
     el.style.border = "1px solid #FF5050";
     el.parentElement.classList.add(className);
 }
@@ -40,67 +40,86 @@ function chkPass(el, className) {
 }
 
 // 이름
-inputName.addEventListener('keyup', (e) => {
+inputName.addEventListener('input', (e) => {
     if(/[^a-zA-Z]/.test(e.target.value)) {
-        alert('영문만 쓰세요')
-        console.log('국문?')
-        // 입력할때 벨리데이션 체크하기로 바꿔보기 10/31
+        chkInput(inputName, "worng_eng");
     } else {
-        console.log('영문?')
         inputContents(e, name);
+        chkPass(inputName, "worng_eng");
+        chkPass(inputName, "blank");
+        // fail 리스트에 있는 것 빼기
     }
 });
 
 // 카드넘버
 inputCardNumbers.addEventListener('input', (e) => {
-    inputContents(e, cardNumbers);
+    if(/[^0-9]/g.test(e.target.value)) {
+        chkInput(inputCardNumbers, "worng");
+    } else {
+        chkPass(inputCardNumbers, "worng");
+        chkPass(inputCardNumbers, "blank");
+        inputContents(e, cardNumbers);
+    }
 });
 
 // 연도
 inputDateYear.addEventListener('input', (e) => {
-    inputContents(e, dateYear);
+    if(/[^0-9]/g.test(e.target.value)) {
+        chkInput(inputDateYear, "worng");
+    } else {
+        chkPass(inputDateYear, "worng");
+        chkPass(inputDateYear, "blank");
+        inputContents(e, dateYear);
+    }
 });
 
 // 월
 inputDateMonth.addEventListener('input', (e) => {
-    inputContents(e, dateMonth);
+    if(/[^0-9]/g.test(e.target.value)) {
+        chkInput(inputDateMonth, "worng");
+    } else {
+        chkPass(inputDateMonth, "worng");
+        chkPass(inputDateMonth, "blank");
+        inputContents(e, dateMonth);
+    }
 })
 
 // CVC번호
 inputCvcNumbers.addEventListener('input', (e) => {
-    inputContents(e, cvcNumbers);
+    if(/[^0-9]/g.test(e.target.value)) {
+        chkInput(inputCvcNumbers, "worng");
+    } else { 
+        chkPass(inputCvcNumbers, "worng");
+        chkPass(inputCvcNumbers, "blank");
+        inputContents(e, cvcNumbers);
+    }
 })
 
 confirmBtn.addEventListener('click', () => {
     // 이름체크
     if(inputName.value === "") {
         fails.push(inputName);
-        chkNull(inputName, "blank");
-    } else if (/[^a-zA-Z]/.test(inputName.value)) {
-        fails.push(inputName);
-        console.log('영문만 입력하세요');
-    } else {
-        return;
+        chkInput(inputName, "blank");
     }
     // 카드넘버 체크
     if(inputCardNumbers.value == "") {
         fails.push(inputCardNumbers);
-        chkNull(inputCardNumbers, "blank");
+        chkInput(inputCardNumbers, "blank");
     }
     // 연도 체크
     if(inputDateYear.value == "") {
         fails.push(inputDateYear);
-        chkNull(inputDateYear, "blank");
+        chkInput(inputDateYear, "blank");
     }
     // 월 체크
     if(inputDateMonth.value == "") {
         fails.push(inputDateMonth);
-        chkNull(inputDateMonth, "blank");
+        chkInput(inputDateMonth, "blank");
     }
     // CVC번호 체크
     if(inputCvcNumbers.value == "") {
         fails.push(inputCvcNumbers);
-        chkNull(inputCvcNumbers, "blank");
+        chkInput(inputCvcNumbers, "blank");
     }
     
     console.log(fails);
